@@ -1,22 +1,21 @@
 part of 'login_screen_cubit.dart';
 
-sealed class LoginScreenState {
+class LoginScreenState {
   bool isPasswordVisible;
   bool isRememberMe;
 
-  LoginScreenState({this.isPasswordVisible = true, this.isRememberMe = false});
-}
+  LoginScreenState({
+    this.isRememberMe = false,
+    this.isPasswordVisible = true,
+  });
 
-final class LoginScreenInitial extends LoginScreenState {
-  LoginScreenInitial() : super();
-}
-
-final class LoginScreenPasswordVisibility extends LoginScreenState {
-  LoginScreenPasswordVisibility(bool isPasswordVisible, bool isRememberMe)
-    : super(isPasswordVisible: isPasswordVisible, isRememberMe: isRememberMe);
-}
-
-final class LoginScreenRememberMe extends LoginScreenState {
-  LoginScreenRememberMe(bool isPasswordVisible, bool isRememberMe)
-    : super(isPasswordVisible: isPasswordVisible, isRememberMe: isRememberMe);
+  LoginScreenState copyWith({
+    bool? isPasswordVisible,
+    bool? isRememberMe,
+  }) {
+    return LoginScreenState(
+      isRememberMe: isRememberMe ?? this.isRememberMe,
+      isPasswordVisible: isPasswordVisible ?? this.isPasswordVisible
+    );
+  }
 }

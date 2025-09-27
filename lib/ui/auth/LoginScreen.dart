@@ -7,6 +7,7 @@ import '../../customWidgits/CustomTextFormField.dart';
 import '../../utiles/AppColors.dart';
 import '../../utiles/AppFonts.dart';
 import '../../utiles/AppRoutes.dart';
+import 'Validator.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = "login";
@@ -50,15 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Customtextformfield(
                   prefixIcon: "prefixIcon",
                   labelText: "UserName",
-
-                  validate: (value) {
-                    if (value!.contains("@gmail.com") == false) {
-                      return "this is not a valid email";
-                    } else if (value.isEmpty) {
-                      return "Please Write Your Email Here";
-                    }
-                    return null;
-                  },
+                  validate:Validators.validateEmail,
                 ),
                 SizedBox(height: height * 0.02),
                 BlocBuilder<LoginScreenCubit, LoginScreenState>(
@@ -70,16 +63,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     return Customtextformfield(
                       prefixIcon: "prefixIcon",
                       labelText: "Password",
-                      password: state.isPasswordVisible,
-                      validate: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Password is required";
-                        }
-                        if (!passwordRegex.hasMatch(value)) {
-                          return "Password must contain at least 1 uppercase, 1 lowercase, 1 number, and be 8+ characters long";
-                        }
-                        return null;
-                      },
+                      password: state.isPasswordVisible!,
+                      validate: Validators.validatePassword,
                       isSuffixIcon: true,
                       suffixIcon: AppImages.passwordIcon,
                       suffixIconTap: () {
