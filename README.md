@@ -12,9 +12,11 @@ A modern Flutter news application that provides users with the latest news from 
 - 🌐 **WebView Integration**: Full article reading experience
 - 📱 **Onboarding**: User-friendly introduction screens
 
-## Screenshots
+## Download
 
-*Add screenshots of your app here*
+📱 **Download the Application**
+- [Download APK from Google Drive](https://drive.google.com/file/d/1atNrOmaNuqjCsLnz9JXuV1vTUbLF-bpP/view?usp=sharing)
+
 
 ## Prerequisites
 
@@ -58,7 +60,7 @@ This app uses the NewsAPI service to fetch news data. You need to configure your
 
 ### Setting up the API Key
 
-**Option 1: Direct Configuration (Current Setup)**
+**Direct Configuration (Current Setup)**
 The API key is currently hardcoded in `lib/api/ApiConstants.dart`:
 ```dart
 class ApiConstants{
@@ -66,41 +68,6 @@ class ApiConstants{
   static const String apiKey = "YOUR_API_KEY_HERE"; // Replace with your actual API key
 }
 ```
-
-**Option 2: Environment Variables (Recommended for Production)**
-For better security, consider using environment variables:
-
-1. Create a `.env` file in the project root:
-   ```
-   NEWS_API_KEY=your_actual_api_key_here
-   ```
-
-2. Add `flutter_dotenv` to your `pubspec.yaml`:
-   ```yaml
-   dependencies:
-     flutter_dotenv: ^5.1.0
-   ```
-
-3. Update `ApiConstants.dart`:
-   ```dart
-   import 'package:flutter_dotenv/flutter_dotenv.dart';
-   
-   class ApiConstants{
-     static const String baseUrl = "newsapi.org";
-     static String get apiKey => dotenv.env['NEWS_API_KEY'] ?? '';
-   }
-   ```
-
-4. Load the environment in `main.dart`:
-   ```dart
-   import 'package:flutter_dotenv/flutter_dotenv.dart';
-   
-   void main() async {
-     WidgetsFlutterBinding.ensureInitialized();
-     await dotenv.load(fileName: ".env");
-     runApp(const MyApp());
-   }
-   ```
 
 ### API Endpoints Used
 
@@ -141,41 +108,6 @@ lib/
 - **webview_flutter**: WebView for article reading
 - **url_launcher**: URL launching functionality
 - **flutter_native_splash**: Splash screen
-
-## Building for Production
-
-### Android
-```bash
-flutter build apk --release
-# or for app bundle
-flutter build appbundle --release
-```
-
-### iOS
-```bash
-flutter build ios --release
-```
-
-### Web
-```bash
-flutter build web --release
-```
-
-### Desktop (Windows/Linux/macOS)
-```bash
-# Windows
-flutter build windows --release
-
-# Linux
-flutter build linux --release
-
-# macOS
-flutter build macos --release
-```
-
-## Troubleshooting
-
-### Common Issues
 
 1. **API Key Issues**
    - Ensure your API key is valid and active
