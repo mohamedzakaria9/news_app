@@ -7,6 +7,11 @@ class AppFonts {
     fontWeight: FontWeight.w700,
     fontSize: 24,
   );
+  static const TextStyle bold16Black = TextStyle(
+    color: AppColors.blackColor,
+    fontWeight: FontWeight.bold,
+    fontSize: 16,
+  );
   static const TextStyle medium16Black = TextStyle(
     color: AppColors.blackColor,
     fontWeight: FontWeight.w400,

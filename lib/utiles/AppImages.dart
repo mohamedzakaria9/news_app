@@ -8,4 +8,11 @@ class AppImages{
   static const String passwordIcon = "assets/images/passwordIcon.png";
   static const String facebookImage = "assets/images/FaceBookLogoImage.png";
   static const String googleImage = "assets/images/GoogleLogoImage.png";
+  static const String logoAppbar = "assets/images/LogoAppbar.png";
+  static const String homeIcon = "assets/images/HomeIcon.png";
+  static const String browseIcon = "assets/images/BrowseIcon.png";
+  static const String bookmarkIcon = "assets/images/BookmarkIcon.png";
+  static const String profileIcon = "assets/images/ProfileIcon.png";
+  static const String moreIcon = "assets/images/MoreIcon.png";
+  static const String shareIcon = "assets/images/ShareIcon.png";
 }
