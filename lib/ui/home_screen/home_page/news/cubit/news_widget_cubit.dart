@@ -52,9 +52,13 @@ class NewsWidgetCubit extends Cubit<NewsWidgetState> {
           emit(NewsWidgetLoaded(_articles, hasReachedMax: _hasReachedMax));
         }
       } else {
+        //print("there is no  internet connections in the application");
+        print(newsResponse.message);
         emit(NewsWidgetError(newsResponse.message ?? "Unknown error occurred"));
       }
     } catch (e) {
+      //print("this is the error from the cubit");
+      print(e.toString());
       emit(NewsWidgetError(e.toString()));
     }
   }
@@ -86,13 +90,14 @@ class NewsWidgetCubit extends Cubit<NewsWidgetState> {
           if (newArticles.length < _pageSize) {
             _hasReachedMax = true;
           }
-
           emit(NewsWidgetLoaded(_articles, hasReachedMax: _hasReachedMax));
         }
       } else {
+        print(newsResponse.message);
         emit(NewsWidgetError(newsResponse.message ?? "Failed to load more news"));
       }
     } catch (e) {
+      print(e.toString());
       emit(NewsWidgetError("Failed to load more news: ${e.toString()}"));
     }
   }

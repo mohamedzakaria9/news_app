@@ -4,9 +4,11 @@ import 'package:new_app/models/SourceResponse.dart';
 import 'package:new_app/ui/home_screen/home_page/source/SourceTabs.dart';
 
 import '../../../../utiles/AppColors.dart';
+import '../../../../utiles/AppFonts.dart';
 
 class CategoryDetails extends StatelessWidget {
   const CategoryDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SourceResponse?>(
@@ -18,7 +20,10 @@ class CategoryDetails extends StatelessWidget {
             child: CircularProgressIndicator(color: AppColors.greyScaleColor),
           );
         } else if (snapshot.hasError) {
-          return Center(child: Text(snapshot.error.toString()));
+          return Text(
+            "An Error Occured Please check your internet connection and then try again",
+            style: AppFonts.large20Black,
+          );
         }
         //server response => success or error
         if (snapshot.data?.status != "ok") {

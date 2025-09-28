@@ -72,7 +72,7 @@ class _NewsWidgetState extends State<NewsWidget> {
             );
 
           case NewsWidgetError():
-            return Center(child: Text(state.message));
+            return Text("No Articles Found");
 
           case NewsWidgetLoaded():
           case NewsWidgetLoadingMore():
